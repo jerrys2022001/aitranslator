@@ -71,8 +71,23 @@ describe("createLandingPage", () => {
     const stylesheet = readFileSync(resolve(process.cwd(), "src/style.css"), "utf8");
 
     expect(stylesheet).toContain(".hero-carousel__viewport");
+    expect(stylesheet).toContain("width: min(100%, 420px);");
     expect(stylesheet).toContain("padding: 1.5px;");
     expect(stylesheet).toContain("inset: 1.5px;");
     expect(stylesheet).toContain("object-fit: cover;");
+  });
+
+  it("is compatible with direct static hosting without relying on Vite-only css and image imports", () => {
+    const html = readFileSync(resolve(process.cwd(), "index.html"), "utf8");
+    const mainModule = readFileSync(resolve(process.cwd(), "src/main.js"), "utf8");
+    const contentModule = readFileSync(resolve(process.cwd(), "src/content.js"), "utf8");
+    const packageJson = readFileSync(resolve(process.cwd(), "package.json"), "utf8");
+
+    expect(html).toContain('<link rel="stylesheet" href="./src/style.css"');
+    expect(html).toContain('<script type="module" src="./src/main.js"></script>');
+    expect(mainModule).not.toContain('import "./style.css";');
+    expect(contentModule).toContain('./src/assets/screens/live-translate.png');
+    expect(contentModule).not.toContain('import liveTranslateImage from');
+    expect(packageJson).toContain('"build": "vite build && node scripts/postbuild.mjs"');
   });
 });

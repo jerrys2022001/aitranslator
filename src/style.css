@@ -251,7 +251,7 @@ img {
 
 .hero-carousel__viewport {
   position: relative;
-  width: min(100%, 392px);
+  width: min(100%, 420px);
   aspect-ratio: 9 / 19.5;
   margin: 0 auto;
   padding: 1.5px;
@@ -607,7 +607,7 @@ img {
   }
 
   .hero-carousel__viewport {
-    width: min(100%, 360px);
+    width: min(100%, 388px);
   }
 
   .site-header {
@@ -640,7 +640,7 @@ img {
   }
 
   .hero-carousel__viewport {
-    width: min(100%, 332px);
+    width: min(100%, 348px);
     border-radius: 26px;
   }
 

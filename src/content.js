@@ -1,7 +1,7 @@
-import darkWorkspaceImage from "./assets/screens/dark-workspace.png";
-import liveTranslateImage from "./assets/screens/live-translate.png";
-import objectLearningImage from "./assets/screens/object-learning.png";
-import offlineModeImage from "./assets/screens/offline-mode.png";
+const darkWorkspaceImage = "./src/assets/screens/dark-workspace.png";
+const liveTranslateImage = "./src/assets/screens/live-translate.png";
+const objectLearningImage = "./src/assets/screens/object-learning.png";
+const offlineModeImage = "./src/assets/screens/offline-mode.png";
 
 export const siteContent = {
   nav: [
