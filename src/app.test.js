@@ -3,6 +3,8 @@ import { resolve } from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { createLandingPage } from "./app.js";
 
+const APP_STORE_URL = "https://apps.apple.com/app/id6757105258";
+
 describe("createLandingPage", () => {
   it("renders the core landing sections", () => {
     document.body.innerHTML = '<div id="app"></div>';
@@ -58,13 +60,28 @@ describe("createLandingPage", () => {
     );
 
     expect(headerCta?.getAttribute("aria-label")).toBe(
-      "Jump to the final call to action section",
+      "Open AI Translator on the App Store",
     );
     expect(carouselRegion?.getAttribute("aria-live")).toBe("polite");
     expect(document.querySelector('.site-nav a[href="#features"]')).not.toBeNull();
     expect(document.querySelector('.site-nav a[href="#scenarios"]')).not.toBeNull();
     expect(document.querySelector('.site-nav a[href="#demo"]')).not.toBeNull();
     expect(demoLinks.every((link) => link.getAttribute("target") === "_blank")).toBe(true);
+  });
+
+  it("links all download-focused CTAs directly to the App Store listing", () => {
+    document.body.innerHTML = '<div id="app"></div>';
+    const mountNode = document.querySelector("#app");
+
+    createLandingPage({ mountNode });
+
+    const headerCta = document.querySelector(".site-header__cta");
+    const heroPrimaryCta = document.querySelector(".hero .button--primary");
+    const finalPrimaryCta = document.querySelector(".final-cta .button--primary");
+
+    expect(headerCta?.getAttribute("href")).toBe(APP_STORE_URL);
+    expect(heroPrimaryCta?.getAttribute("href")).toBe(APP_STORE_URL);
+    expect(finalPrimaryCta?.getAttribute("href")).toBe(APP_STORE_URL);
   });
 
   it("uses a slightly smaller hero viewport with the screenshots' real aspect ratio so the full image stays visible", () => {

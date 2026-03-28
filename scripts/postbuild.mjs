@@ -10,8 +10,8 @@ function copyPathIfExists(sourcePath, targetPath) {
   cpSync(sourcePath, targetPath, { recursive: true });
 }
 
-const sourceDir = resolve(process.cwd(), "src/assets/screens");
-const targetDir = resolve(process.cwd(), "dist/src/assets/screens");
+const sourceDir = resolve(process.cwd(), "src/assets");
+const targetDir = resolve(process.cwd(), "dist/src/assets");
 
 copyPathIfExists(sourceDir, targetDir);
 copyPathIfExists(

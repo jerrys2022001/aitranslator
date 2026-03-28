@@ -106,8 +106,8 @@ export function createLandingPage({ mountNode, autoRotateMs = 4600 }) {
         </nav>
         <a
           class="site-header__cta"
-          href="#final-cta"
-          aria-label="Jump to the final call to action section"
+          href="${siteContent.hero.primaryCta.href}"
+          aria-label="Open AI Translator on the App Store"
         >
           Get the app
         </a>

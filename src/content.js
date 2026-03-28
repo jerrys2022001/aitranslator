@@ -2,6 +2,7 @@ const darkWorkspaceImage = "./src/assets/screens/dark-workspace.png";
 const liveTranslateImage = "./src/assets/screens/live-translate.png";
 const objectLearningImage = "./src/assets/screens/object-learning.png";
 const offlineModeImage = "./src/assets/screens/offline-mode.png";
+export const APP_STORE_URL = "https://apps.apple.com/app/id6757105258";
 
 export const siteContent = {
   nav: [
@@ -13,7 +14,7 @@ export const siteContent = {
     eyebrow: "AI-powered language support",
     title: "Translate text, voice, photos, and offline moments with one radiant AI workspace.",
     body: "AI Translator helps you speak, read, and understand more naturally with live translation, photo capture, offline packs, and built-in learning tools.",
-    primaryCta: { label: "Get the app", href: "#final-cta" },
+    primaryCta: { label: "Get the app", href: APP_STORE_URL },
     secondaryCta: {
       label: "Watch the demo",
       href: "https://youtube.com/shorts/5CNDHGiT3Po?si=4o5JamEPmshbP7kq",
@@ -110,7 +111,7 @@ export const siteContent = {
   finalCta: {
     title: "Keep translation close when the moment is moving fast.",
     body: "A single AI translator for speech, photos, text, and offline support.",
-    primary: { label: "Start with the homepage demo", href: "#hero" },
+    primary: { label: "Get the app", href: APP_STORE_URL },
     secondary: {
       label: "Watch the short video",
       href: "https://youtube.com/shorts/5CNDHGiT3Po?si=4o5JamEPmshbP7kq",
