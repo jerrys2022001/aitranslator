@@ -1,11 +1,11 @@
 import { APP_STORE_URL } from "./content.js";
 
-const INVITE_QR_IMAGE_PATH = "../src/assets/invite/qrcode.png";
+const INVITE_QR_IMAGE_PATH = "./src/assets/invite/qrcode.png";
 
 export function createInvitePage({ mountNode }) {
   mountNode.innerHTML = `
     <div class="invite-shell">
-      <a class="invite-brand" href="../">AI Translator</a>
+      <a class="invite-brand" href="./">AI Translator</a>
 
       <main class="invite-card" aria-labelledby="invite-title">
         <p class="invite-kicker">Direct download</p>
