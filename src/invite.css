@@ -136,6 +136,8 @@ h1 {
 }
 
 .invite-qr-link {
+  display: inline-flex;
+  justify-content: center;
   text-decoration: none;
   transform: translateY(0);
   transition: transform 180ms ease, box-shadow 180ms ease;
@@ -147,7 +149,9 @@ h1 {
 }
 
 .invite-qr-frame {
-  display: block;
+  display: inline-flex;
+  width: fit-content;
+  margin-inline: auto;
   padding: 1rem;
   border-radius: 1.85rem;
   background: rgba(255, 255, 255, 0.96);

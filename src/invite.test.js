@@ -30,6 +30,17 @@ describe("invite page", () => {
     expect(viteConfig).toContain('resolve(__dirname, "invite/index.html")');
   });
 
+  it("keeps the QR code centered inside the white frame", () => {
+    const stylesheet = readFileSync(INVITE_STYLES_PATH, "utf8");
+
+    expect(stylesheet).toContain(".invite-qr-link {");
+    expect(stylesheet).toContain("display: inline-flex;");
+    expect(stylesheet).toContain("justify-content: center;");
+    expect(stylesheet).toContain(".invite-qr-frame {");
+    expect(stylesheet).toContain("width: fit-content;");
+    expect(stylesheet).toContain("margin-inline: auto;");
+  });
+
   it("renders a one-screen download page with QR and App Store CTAs", async () => {
     let createInvitePage;
     const inviteModulePath = "./invite.js";
