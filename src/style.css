@@ -66,7 +66,7 @@ img {
 }
 
 .page-shell {
-  width: min(1200px, calc(100% - 32px));
+  width: min(1280px, calc(100% - 32px));
   margin: 0 auto;
   padding: 24px 0 72px;
 }
@@ -171,8 +171,8 @@ img {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-  gap: 44px;
+  grid-template-columns: minmax(0, 0.96fr) minmax(360px, 1.04fr);
+  gap: 36px;
   padding: 88px 0 48px;
   align-items: center;
 }
@@ -251,11 +251,13 @@ img {
 
 .hero-carousel__viewport {
   position: relative;
-  width: min(100%, 420px);
-  aspect-ratio: 9 / 19.5;
+  width: min(100%, 400px);
+  aspect-ratio: 23 / 50;
   margin: 0 auto;
-  padding: 1.5px;
-  border-radius: 28px;
+  padding: 1px;
+  overflow: hidden;
+  isolation: isolate;
+  border-radius: 30px;
   border: 0.75px solid rgba(255, 255, 255, 0.12);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
@@ -267,9 +269,10 @@ img {
 
 .hero-shot {
   position: absolute;
-  inset: 1.5px;
+  inset: 1px;
+  margin: 0;
   overflow: hidden;
-  border-radius: 26.5px;
+  border-radius: 29px;
   border: 0;
   background: transparent;
   opacity: 0;
@@ -288,8 +291,9 @@ img {
 .hero-shot img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center top;
+  border-radius: inherit;
   background: transparent;
 }
 
@@ -393,6 +397,10 @@ img {
 
 .section-heading {
   margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .section-heading h2,
@@ -400,6 +408,7 @@ img {
 .final-cta h2 {
   font-size: clamp(2.2rem, 5vw, 4.2rem);
   max-width: 12ch;
+  margin-inline: auto;
 }
 
 .feature-grid,
@@ -414,7 +423,7 @@ img {
 
 .feature-card {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(220px, 320px);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);
   align-items: center;
   gap: 22px;
   padding: 24px;
@@ -440,8 +449,8 @@ img {
 }
 
 .feature-card__device-frame {
-  width: min(100%, 292px);
-  aspect-ratio: 9 / 19.5;
+  width: min(100%, 360px);
+  aspect-ratio: 23 / 50;
   overflow: hidden;
   padding: 0;
   border-radius: 30px;
@@ -513,14 +522,20 @@ img {
 .final-cta {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 14px;
   margin-top: 24px;
   padding: 32px;
+  text-align: center;
   border-radius: 36px;
   background:
     radial-gradient(circle at top left, rgba(255, 104, 80, 0.2), transparent 24%),
     radial-gradient(circle at bottom right, rgba(117, 84, 255, 0.28), transparent 30%),
     rgba(14, 16, 34, 0.82);
+}
+
+.final-cta .hero__actions {
+  justify-content: center;
 }
 
 .site-footer {
@@ -607,7 +622,7 @@ img {
   }
 
   .hero-carousel__viewport {
-    width: min(100%, 388px);
+    width: min(100%, 368px);
   }
 
   .site-header {
@@ -622,7 +637,7 @@ img {
   }
 
   .feature-card {
-    grid-template-columns: minmax(0, 1fr) minmax(200px, 260px);
+    grid-template-columns: minmax(0, 1fr) minmax(280px, 340px);
   }
 }
 
@@ -640,7 +655,7 @@ img {
   }
 
   .hero-carousel__viewport {
-    width: min(100%, 348px);
+    width: min(100%, 320px);
     border-radius: 26px;
   }
 
@@ -654,7 +669,7 @@ img {
   }
 
   .feature-card__device-frame {
-    width: min(100%, 272px);
+    width: min(100%, 320px);
   }
 
   .site-header,

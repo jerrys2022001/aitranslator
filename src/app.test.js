@@ -67,14 +67,19 @@ describe("createLandingPage", () => {
     expect(demoLinks.every((link) => link.getAttribute("target") === "_blank")).toBe(true);
   });
 
-  it("uses edge-to-edge hero screen styling so the phone bottom does not show a thick gutter", () => {
+  it("uses a slightly smaller hero viewport with the screenshots' real aspect ratio so the full image stays visible", () => {
     const stylesheet = readFileSync(resolve(process.cwd(), "src/style.css"), "utf8");
 
     expect(stylesheet).toContain(".hero-carousel__viewport");
-    expect(stylesheet).toContain("width: min(100%, 420px);");
-    expect(stylesheet).toContain("padding: 1.5px;");
-    expect(stylesheet).toContain("inset: 1.5px;");
-    expect(stylesheet).toContain("object-fit: cover;");
+    expect(stylesheet).toContain("width: min(100%, 400px);");
+    expect(stylesheet).toContain("aspect-ratio: 23 / 50;");
+    expect(stylesheet).toContain("padding: 1px;");
+    expect(stylesheet).toContain("inset: 1px;");
+    expect(stylesheet).toContain("margin: 0;");
+    expect(stylesheet).toContain("overflow: hidden;");
+    expect(stylesheet).toContain("border-radius: inherit;");
+    expect(stylesheet).toContain("object-fit: contain;");
+    expect(stylesheet).toContain("object-position: center top;");
   });
 
   it("is compatible with direct static hosting without relying on Vite-only css and image imports", () => {
@@ -89,5 +94,28 @@ describe("createLandingPage", () => {
     expect(contentModule).toContain('./src/assets/screens/live-translate.png');
     expect(contentModule).not.toContain('import liveTranslateImage from');
     expect(packageJson).toContain('"build": "vite build && node scripts/postbuild.mjs"');
+  });
+
+  it("uses a wider feature device column with the screenshots' real aspect ratio so the image can be seen fully", () => {
+    const stylesheet = readFileSync(resolve(process.cwd(), "src/style.css"), "utf8");
+
+    expect(stylesheet).toContain(
+      "grid-template-columns: minmax(0, 1fr) minmax(300px, 380px);",
+    );
+    expect(stylesheet).toContain("width: min(100%, 360px);");
+    expect(stylesheet).toContain("aspect-ratio: 23 / 50;");
+    expect(stylesheet).toContain(".feature-card__device-frame img");
+    expect(stylesheet).toContain("object-fit: contain;");
+  });
+
+  it("centers the feature, scenario, and final call-to-action headings", () => {
+    const stylesheet = readFileSync(resolve(process.cwd(), "src/style.css"), "utf8");
+
+    expect(stylesheet).toContain(".section-heading {");
+    expect(stylesheet).toContain("text-align: center;");
+    expect(stylesheet).toContain("align-items: center;");
+    expect(stylesheet).toContain("margin-inline: auto;");
+    expect(stylesheet).toContain(".final-cta .hero__actions");
+    expect(stylesheet).toContain("justify-content: center;");
   });
 });
