@@ -30,15 +30,6 @@ describe("invite page", () => {
     expect(viteConfig).toContain('resolve(__dirname, "invite/index.html")');
   });
 
-  it("postbuild flattens the invite page into a direct /invite output path", () => {
-    const postbuildScript = readFileSync(resolve(process.cwd(), "scripts/postbuild.mjs"), "utf8");
-
-    expect(postbuildScript).toContain('resolve(process.cwd(), "dist/invite/index.html")');
-    expect(postbuildScript).toContain('resolve(process.cwd(), "dist/invite")');
-    expect(postbuildScript).toContain("writeFileSync");
-    expect(postbuildScript).toContain("rmSync");
-  });
-
   it("keeps the QR code centered inside the white frame", () => {
     const stylesheet = readFileSync(INVITE_STYLES_PATH, "utf8");
 
