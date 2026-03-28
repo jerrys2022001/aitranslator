@@ -15,6 +15,10 @@ const targetDir = resolve(process.cwd(), "dist/src/assets/screens");
 
 copyPathIfExists(sourceDir, targetDir);
 copyPathIfExists(
+  resolve(process.cwd(), ".nojekyll"),
+  resolve(process.cwd(), "dist/.nojekyll")
+);
+copyPathIfExists(
   resolve(process.cwd(), "apple-app-site-association"),
   resolve(process.cwd(), "dist/apple-app-site-association")
 );
