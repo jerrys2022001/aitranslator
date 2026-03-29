@@ -3,6 +3,8 @@ import { resolve } from "node:path";
 import { describe, expect, it } from "vitest";
 
 const APP_STORE_URL = "https://apps.apple.com/app/id6757105258";
+const APP_STORE_ID = "6757105258";
+const APP_CLIP_BUNDLE_ID = "net.velocai.translateai.ReferralClip";
 const SHORT_ENTRY_HTML_PATH = resolve(process.cwd(), "i.html");
 const LEGACY_INVITE_HTML_PATH = resolve(process.cwd(), "invite/index.html");
 const INVITE_MODULE_PATH = resolve(process.cwd(), "src/invite.js");
@@ -23,6 +25,9 @@ describe("invite page", () => {
 
     expect(inviteHtml).toContain('<link rel="stylesheet" href="./src/invite.css"');
     expect(inviteHtml).toContain('<script type="module" src="./src/invite.js"></script>');
+    expect(inviteHtml).toContain('name="apple-itunes-app"');
+    expect(inviteHtml).toContain(`app-id=${APP_STORE_ID}`);
+    expect(inviteHtml).toContain(`app-clip-bundle-id=${APP_CLIP_BUNDLE_ID}`);
     expect(inviteHtml).toContain("<div id=\"invite-app\"></div>");
   });
 
