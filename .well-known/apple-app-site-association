@@ -10,7 +10,7 @@
       {
         "appID": "38ZK6BDMK6.net.velocai.translateai",
         "paths": [
-          "/*"
+          "*"
         ]
       }
     ]
